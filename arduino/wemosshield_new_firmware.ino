@@ -47,8 +47,8 @@ void loop() {
  Serial.printf("Pos: %i / Target: %i\n",pos,target);
  
  write_wms(MOTOR_SET_COUNT,SLAVE_ADDRESS_1,pos);//send counter // WHY IS IT NECESSARY TO INITIALIZE COUNT?
- //write_wms(MOTOR_SET_TARGET,SLAVE_ADDRESS_1,target);//target set
- //write_wms(MOTOR_SET_SPEED,SLAVE_ADDRESS_1,speed);//command speed
+ write_wms(MOTOR_SET_TARGET,SLAVE_ADDRESS_1,target);//target set
+ write_wms(MOTOR_SET_SPEED,SLAVE_ADDRESS_1,speed);//command speed
  //write_wms(MOTOR_SET_TARGET_SPEED,SLAVE_ADDRESS_1,target);//target _speed // I´M SUPPOSED TO PUT TARGET OR SPEED HERE? 
  
  while ( (pos=read_wms( MOTOR_GET_COUNT ,SLAVE_ADDRESS_1))!=target) // WHY GET_COUNT AND NOT GET_TARGET?
